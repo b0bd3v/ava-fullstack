@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import logo from './logo.png';
 import './Header.scss';
+import { Menu, Container, Image } from 'semantic-ui-react';
 
 class Header extends Component {
-  render() {
-    return (
-      <div>
-        <header>
-          <img src={logo} className="Header-logo" alt="Iconic" />
-          <h1 className="Header-title">Controle de usuários</h1>
-        </header>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <Menu fixed='top' inverted>
+                <Container>
+                    <Menu.Item as='a' header>
+                        <Image size='mini' src={logo} style={{ marginRight: '1.5em' }} />
+                        Controle usuários
+                    </Menu.Item>
+                    <Menu.Item as='a'>Home</Menu.Item>
+                    <Menu.Item as='a'>Usuários</Menu.Item>
+                    <Menu.Item as='a'>Sobre</Menu.Item>
+                </Container>
+            </Menu>
+        );
+    }
 }
 
 export default Header;
