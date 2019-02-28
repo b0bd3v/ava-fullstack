@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import './UsuarioLista.scss';
 import { Table, Container } from 'semantic-ui-react';
+import axios from 'axios';
 
 class UsuarioLista extends Component {
     render() {
+        axios.get('http://127.0.0.1:3333/usuarios')
+            .then(response => console.log(response))
+            
         return (
             <Container style={{ marginTop: '7em' }}>
                 <Table celled inverted selectable>
