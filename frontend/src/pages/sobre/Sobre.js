@@ -5,12 +5,11 @@ import './Sobre.scss';
 class Sobre extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Página sobre o sistema</h1>
-        </header>
-      </div>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1 className="App-title">Sistema desenvolvido por Roberto Martins</h1>
+        <p>Com o objetivo de avaliação para a vaga de desenvolvedor na Iconic.</p>
+      </header>
     );
   }
 }
