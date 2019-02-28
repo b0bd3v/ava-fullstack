@@ -10,12 +10,16 @@ import UsuarioLista from './pages/usuario/lista/Lista';
 import Header from './header/Header';
 
 ReactDOM.render(
-    [<Header />, <BrowserRouter>
+    <BrowserRouter>
+        <div>
+        <Header />
         <Switch>
             <Route path="/" exact={true} component={App} />
+            <Route path="/home" exact={true} component={App} />
             <Route path="/sobre" exact={true} component={Sobre} />
             <Route path="/usuarios" exact={true} component={UsuarioLista} />
         </Switch>
-    </BrowserRouter>]
+        </div>
+    </BrowserRouter>
     , document.getElementById('root'));
 serviceWorker.unregister();
