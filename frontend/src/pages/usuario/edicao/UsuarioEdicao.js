@@ -5,21 +5,28 @@ import axios from 'axios';
 
 class UsuarioEdicao extends Component {
 
+    state = {
+        username: null,
+        firstname: null,
+        lastname: null,
+        email: null,
+        phoneNumber: null,
+        birthdate: null,
+        document: null,
+        address: null
+    }
+
+    constructor(props){
+        super(props)
+        this.state = this.props.usuario.info
+    }
+
     handleSubmit = () => {
 
         axios.put('http://localhost:3333/usuario',
             {
                 _id: this.props.usuario._id,
-                info: {
-                    username: 'teste',
-                    firstname: 'teste',
-                    lastname: 'teste',
-                    email: 'tess',
-                    phoneNumber: 'teste',
-                    birthdate: 'teste',
-                    document: 'teste',
-                    address: 'teste'
-                }
+                info: this.state
             })
             .then(response => {
                 console.log(response);
@@ -29,26 +36,29 @@ class UsuarioEdicao extends Component {
             });
 
     }
+    
+    handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
     render() {
-        const usuario = this.props.usuario
+        const usuario = this.state
+
 
         return (
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group widths='equal'>
-                    <Form.Input fluid label='Nome de usuário' placeholder='Nome de usuário' value={usuario.info.username} />
-                    <Form.Input fluid label='Primeiro Nome' placeholder='Primeiro Nome' value={usuario.info.firstname} />
-                    <Form.Input fluid label='Segundo Nome' placeholder='Segundo Nome' value={usuario.info.lastname} />
+                    <Form.Input fluid label='Nome de usuário' placeholder='Nome de usuário' name='username' onChange={this.handleChange} value={usuario.username} />
+                    <Form.Input fluid label='Primeiro Nome' placeholder='Primeiro Nome' name='firstname' onChange={this.handleChange} value={usuario.firstname} />
+                    <Form.Input fluid label='Segundo Nome' placeholder='Segundo Nome' name='lastname' onChange={this.handleChange} value={usuario.lastname} />
                 </Form.Group>
                 <Form.Group widths='equal'>
-                    <Form.Input fluid label='E-mail' placeholder='E-mail' value={usuario.info.email} />
-                    <Form.Input fluid label='Telefone' placeholder='Telefone' value={usuario.info.phoneNumber} />
-                    <Form.Input fluid label='Segundo Nome' placeholder='Segundo Nome' value={usuario.info.birthdate} />
+                    <Form.Input fluid label='E-mail' placeholder='E-mail' name='email' onChange={this.handleChange} value={usuario.email} />
+                    <Form.Input fluid label='Telefone' placeholder='Telefone' name='phoneNumber' onChange={this.handleChange} value={usuario.phoneNumber} />
+                    <Form.Input fluid label='Segundo Nome' placeholder='Segundo Nome' name='birthdate' onChange={this.handleChange} value={usuario.birthdate} />
                 </Form.Group>
                 <Form.Group widths='equal'>
-                    <Form.Input fluid label='Document' placeholder='Document' value={usuario.info.document} />
+                    <Form.Input fluid label='Document' placeholder='Document' name='document' onChange={this.handleChange} value={usuario.document} />
                 </Form.Group>
-                <Form.TextArea label='Endereço' placeholder='...' value={usuario.info.address} />
+                <Form.TextArea label='Endereço' placeholder='...' value={usuario.address} />
                 <Form.Button primary content='Salvar' />
             </Form>
         );
