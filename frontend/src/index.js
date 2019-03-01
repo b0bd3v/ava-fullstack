@@ -6,7 +6,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Sobre from './pages/sobre/Sobre';
-import UsuarioLista from './pages/usuario/lista/Lista';
+import UsuarioLista from './pages/usuario/lista/UsuarioLista';
 import Header from './header/Header';
 
 ReactDOM.render(
