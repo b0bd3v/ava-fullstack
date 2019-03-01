@@ -29,10 +29,11 @@ class UsuarioEdicao extends Component {
                 info: this.state
             })
             .then(response => {
-                console.log(response);
+                this.props.callbackParent(true)
+                this.props.callbackSubmit()
             })
             .catch(error => {
-                console.log(error);
+                this.props.callbackParent(true)
             });
 
     }
@@ -53,12 +54,12 @@ class UsuarioEdicao extends Component {
                 <Form.Group widths='equal'>
                     <Form.Input fluid label='E-mail' placeholder='E-mail' name='email' onChange={this.handleChange} value={usuario.email} />
                     <Form.Input fluid label='Telefone' placeholder='Telefone' name='phoneNumber' onChange={this.handleChange} value={usuario.phoneNumber} />
-                    <Form.Input fluid label='Segundo Nome' placeholder='Segundo Nome' name='birthdate' onChange={this.handleChange} value={usuario.birthdate} />
+                    <Form.Input fluid label='Data de nascimento' placeholder='Data de nascimento' name='birthdate' onChange={this.handleChange} value={usuario.birthdate} />
                 </Form.Group>
                 <Form.Group widths='equal'>
                     <Form.Input fluid label='Document' placeholder='Document' name='document' onChange={this.handleChange} value={usuario.document} />
                 </Form.Group>
-                <Form.TextArea label='Endereço' placeholder='...' value={usuario.address} />
+                <Form.TextArea label='Endereço' placeholder='...' value={usuario.address} name='address' onChange={this.handleChange} />
                 <Form.Button primary content='Salvar' />
             </Form>
         );

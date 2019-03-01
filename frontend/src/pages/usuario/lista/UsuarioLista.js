@@ -9,7 +9,8 @@ class UsuarioLista extends Component {
     state = {
         isLoading: true,
         usuarios: [],
-        error: null
+        error: null,
+        showModal: false
     }
 
 
@@ -27,9 +28,21 @@ class UsuarioLista extends Component {
         this.loadUsuarios()
     }
 
+    closeModal(){
+        this.setState({
+            showModal: null
+        })
+    }
+
+    onOpenModal(id){
+        this.setState({
+            showModal: id
+        })
+    }
+
     render() {
 
-        const { isLoading, usuarios, error } = this.state;
+        const { isLoading, usuarios, error, showModal } = this.state;
 
         return (
             <Container style={{ marginTop: '7em' }}>
@@ -62,7 +75,11 @@ class UsuarioLista extends Component {
                                         <Table.Cell>{usuario.info.firstname}</Table.Cell>
                                         <Table.Cell>{usuario.info.lastname}</Table.Cell>
                                         <Table.Cell className="action-cell">
-                                            <Modal trigger={
+                                            <Modal onOpen={() => {
+                                                this.onOpenModal(usuario._id)
+                                            }} onClose={()=>{
+                                                this.closeModal()
+                                            }} open={showModal == usuario._id} trigger={
                                                 <Button animated='vertical'>
                                                     <Button.Content hidden>Editar</Button.Content>
                                                     <Button.Content visible>
@@ -72,7 +89,7 @@ class UsuarioLista extends Component {
                                             }>
                                                 <Modal.Header>Editar usuário {usuario.info.username}</Modal.Header>
                                                 <Modal.Content>
-                                                    <UsuarioEdicao usuario={usuario} />
+                                                    <UsuarioEdicao callbackParent={() => this.closeModal()} callbackSubmit={() => this.loadUsuarios()} usuario={usuario} />
                                                 </Modal.Content>
                                             </Modal>
                                         </Table.Cell>
