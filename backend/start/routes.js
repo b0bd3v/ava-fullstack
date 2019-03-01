@@ -23,3 +23,5 @@ Route.get('/', () => {
 
 // Listagem de usuários.
 Route.get('/usuarios', 'UsuarioController.index')
+Route.get('/usuario/{id}', 'UsuarioController.show')
+Route.put('/usuario', 'UsuarioController.update')
