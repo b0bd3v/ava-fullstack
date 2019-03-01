@@ -7,19 +7,13 @@ class UsuarioController {
         return usuarios
     }
 
-    async show({params}){
-        const usuario = User.find(params)
-        return usuarios
-    }
-    
-    async update(params, request, response){
-        console.log(params, request, response);
+    async update({ request, response}){
         
-        // const usuario = User.where({ _id: params._id }).update(
-        //     params            
-        // )
+        const usuario = User.where({ _id: request.body._id }).update(
+            request.body
+        )
 
-        // return usuario
+        return usuario
     }
 }
 
