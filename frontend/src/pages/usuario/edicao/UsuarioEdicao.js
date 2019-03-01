@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
+import MaskedField from 'react-masked-field';
 import axios from 'axios';
 
 
@@ -40,6 +41,10 @@ class UsuarioEdicao extends Component {
     
     handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
+    setBirthDate(date){
+        this.setState({ birthdate: date})
+    }
+
     render() {
         const usuario = this.state
 
@@ -54,7 +59,10 @@ class UsuarioEdicao extends Component {
                 <Form.Group widths='equal'>
                     <Form.Input fluid label='E-mail' placeholder='E-mail' name='email' onChange={this.handleChange} value={usuario.email} />
                     <Form.Input fluid label='Telefone' placeholder='Telefone' name='phoneNumber' onChange={this.handleChange} value={usuario.phoneNumber} />
-                    <Form.Input fluid label='Data de nascimento' placeholder='Data de nascimento' name='birthdate' onChange={this.handleChange} value={usuario.birthdate} />
+                    <Form.Field>
+                        <label>Data de nascimento</label>
+                        <MaskedField mask="99/99/9999" value={usuario.birthdate} onComplete={(date) => this.setBirthDate(date)}/>
+                    </Form.Field>
                 </Form.Group>
                 <Form.Group widths='equal'>
                     <Form.Input fluid label='Document' placeholder='Document' name='document' onChange={this.handleChange} value={usuario.document} />
