@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
-  
+
   /**
    * Redirect to user page.
    */
@@ -15,24 +15,66 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App" style={{marginTop: '27em'}}>
+      <div className="App" style={{ marginTop: '17em' }}>
         <Container>
           <h1>ICONIC - Teste para vaga Desenvolvedor</h1>
           <p>Criar uma ferramenta de administração de usuários, contendo as seguintes funcionalidades.</p>
           <p>
-          Visualização Usuários: 
-          - Lista com todos os usuários, mostrando apenas os dados ID, data de cadastro, nro telefone, 
-          nome, sobrenome. - Lista de usuários encontra-se em anexo no arquivo users.json. 
-          2. Edição de dados de Usuários cadastrados: 
-          - Clique para expansão ou abertura de pop-up com com todos os dados - os de cima e os 
-          abaixo: 
-          - Nome de usuário - Nome - Sobrenome - Telefone - Data de nascimento - CPF - E-mail - Endereço completo - Confirmar edição e atualizar página. 
+            <ul>
+              <li>
+                <b>Visualização Usuários</b>
+                <p>
+                  Lista com todos os usuários, mostrando apenas os dados ID, data de cadastro, nro telefone, nome, sobrenome. - Lista de usuários encontra-se em anexo no arquivo users.json.
+                </p>
+              </li>
+              <li>
+                <b>Edição de dados de Usuários cadastrados</b>
+                <p>
+                Clique para expansão ou abertura de pop-up com com todos os dados - os de cima e os abaixo: <br />
+                    <ul>
+                      <li>
+                        Nome de usuário
+                      </li>
+
+                      <li>
+                        Nome
+                      </li>
+
+                      <li>
+                        Sobrenome
+                      </li>
+
+                      <li>
+                        Telefone
+                      </li>
+
+                      <li>
+                        Data de nascimento
+                      </li>
+
+                      <li>
+                        CPF
+                      </li>
+
+                      <li>
+                        E-mail
+                      </li>
+                      <li>
+                        Endereço completo
+                      </li>
+                      <li>
+                        Confirmar edição e atualizar página.
+                      </li>
+                    </ul>
+                </p>
+              </li>
+            </ul>
           </p>
-          <Button primary as={Link} to="/usuarios">Acessar controle de usuários</Button>        
+            <Button primary as={Link} to="/usuarios">Acessar controle de usuários</Button>        
         </Container>
       </div>
-    );
-  }
-}
-
-export default App;
+        );
+      }
+    }
+    
+    export default App;
