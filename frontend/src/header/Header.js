@@ -14,8 +14,7 @@ class Header extends Component {
             itemAtivo: name,
             mudouRota: true,
             novaRota: '/' + name
-        })
-        
+        }) 
     }
 
     render() {
@@ -31,13 +30,12 @@ class Header extends Component {
         return (
             <Menu fixed='top' inverted>
                 <Container>
-                    <Menu.Item as='a' header>
+                    <Menu.Item as='a' header name="home" onClick={this.handlerMenuClick}>
                         <Image size='mini' src={logo} style={{ marginRight: '1.5em' }} />
                         Controle usuários
                     </Menu.Item>
                     <Menu.Item as='a' name="home" active={itemAtivo === 'home'} onClick={this.handlerMenuClick}>Home</Menu.Item>
                     <Menu.Item as='a' name="usuarios" active={itemAtivo === 'usuarios'} onClick={this.handlerMenuClick}>Usuários</Menu.Item>
-                    <Menu.Item as='a' name="sobre" active={itemAtivo === 'sobre'} onClick={this.handlerMenuClick}>Sobre</Menu.Item>
                 </Container>
             </Menu>
         );
