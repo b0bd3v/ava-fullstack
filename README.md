@@ -74,7 +74,7 @@ Utilizar a porta padrão do adonis. Para que o react encontre sem a necessidade 
 
 Para executar o frontend com react:  
 `cd frontend`  
-`adonis serve --dev`
+`npm start`
 
 
 
