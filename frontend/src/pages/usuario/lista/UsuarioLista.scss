@@ -1,0 +1,17 @@
+table{
+    $minTableWidth: 10px;
+    .id-head-cell{
+        width: $minTableWidth;
+    }
+    .created-at-head-cell{
+        width: $minTableWidth;
+        white-space: nowrap;
+    }
+    .action-cell{
+        width: $minTableWidth;
+    }
+    .created-at-cell{
+        width: $minTableWidth;
+        text-align: center!important;
+    }
+}
